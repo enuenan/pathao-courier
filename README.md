@@ -20,10 +20,17 @@ You can install the package via composer:
 composer require enan/pathao-courier
 ```
 
-You can publish and run the migrations with:
+You can publish the migration file and config file with:
 
 ```bash
 php artisan vendor:publish --tag="pathao-courier-migrations"
+php artisan vendor:publish --tag="pathao-courier-config"
+```
+
+Or you can do both in one command
+
+```
+php artisan vendor:publish --provider="Enan\PathaoCourier\PathaoCourierServiceProvider"
 ```
 
 Add the following environment variables to your `.env` file:
