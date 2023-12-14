@@ -39,5 +39,11 @@ class PathaoCourierServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../database' => database_path(),
         ], 'pathao-migration');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                PathaoCourierCommand::class,
+            ]);
+        }
     }
 }
