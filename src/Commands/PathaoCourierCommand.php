@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Enan\PathaoCourier\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class PathaoCourierCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'pathao-courier';
 
     public $description = 'My command';
 
