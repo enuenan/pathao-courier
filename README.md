@@ -1,16 +1,28 @@
-<div style="text-align:center">
+<div align="center">
     <img src="https://merchant.pathao.com/img/logo_pathao_courier.1d2034ea.svg" style="width: 500; height: 500;">
 </div>
-# A complete Laravel Package for Pathao Courier
+
+<h1 align="center">A complete Laravel Package for Pathao Courier</h1>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/enan/pathao-courier.svg?style=flat-square)](https://packagist.org/packages/enan/pathao-courier)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/enan/pathao-courier/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/enan/pathao-courier/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/enan/pathao-courier/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/enan/pathao-courier/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/enan/pathao-courier.svg?style=flat-square)](https://packagist.org/packages/enan/pathao-courier)
 
-This is a laravel package for [Merchant Pathao Courier](https://merchant.pathao.com/) to create order. Now this package is supporting only with one store. Creating new store and create new order with them will be in newer version.
+This is a laravel package for [Merchant Pathao Courier](https://merchant.pathao.com/). With this package you can get the following
 
-## Support us
+1. Get the city list
+2. Get the zone list
+3. Get the area list
+4. Get the store list
+5. Create Store
+6. Get order details
+7. Get calculated price
+8. Get the token exipiration days left and also expected date of it
+
+It offers you a bunch of validation for Create order, Create Store, Get calculated price.So you don't have to worry about the validation for all of this.
+
+<!-- ## Support us -->
 
 ## ⚙️ Installation
 
@@ -42,9 +54,9 @@ PATHAO_CLIENT_SECRET=
 PATHAO_SECRET_TOKEN=
 ```
 
-### 🔑 Where can I find the PATHAO_CLIENT_ID?
+### 🔑 Where can I find the value?
 
-Go to your [Pathao Developers Api](https://merchant.pathao.com/courier/developer-api) and you'll find `Merchant API Credentials` therer.
+Go to your [Pathao Developers Api](https://merchant.pathao.com/courier/developer-api) and you'll find `Merchant API Credentials` there.
 And for `PATHAO_SECRET_TOKEN=` you'll be provided it after the successfull authentication.
 
 ### 🎫 Setup
@@ -64,7 +76,7 @@ You will be provided a secret token here. Please set the token in your `.env` fi
 php artisan set:pathao-courier
 ```
 
-Add the following in `config\app.php`
+Though Laravel auto discover. If not add the following in `config\app.php`
 
 ```php
 // add below line in the providers array
@@ -78,7 +90,8 @@ Enan\PathaoCourier\PathaoCourierServiceProvider::class,
 ### 🏗 Usage
 
 ```php
-use Enan\PathaoCourier\PathaoCourier;
+
+use Enan\PathaoCourier\Facade\PathaoCourier;
 
 
 /**

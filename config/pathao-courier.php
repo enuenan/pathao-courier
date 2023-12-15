@@ -14,8 +14,8 @@ return [
     | to update it before migration.
     |
     */
-
     'pathao_db_table_name' => env('PATHAO_DB_TABLE_NAME', 'pathao-courier'),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -25,8 +25,7 @@ return [
     | This is the base url for the Pathao Courier
     |
     */
-
-    'pathao_base_url' => 'https://api-hermes.pathao.com/',
+    'pathao_base_url' => 'https://api-hermes.pathao.com/', // Don't change it
 
 
     /*
@@ -40,7 +39,6 @@ return [
     | You Have to enable it from there.
     |
     */
-
     'pathao_client_id' => env('PATHAO_CLIENT_ID', ''),
 
 
@@ -55,8 +53,8 @@ return [
     | You Have to enable it from there.
     |
     */
-
     'pathao_client_secret' => env('PATHAO_CLIENT_SECRET', ''),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -67,8 +65,8 @@ return [
     | Please keep it in the .env as PATHAO_SECRET_TOKEN.
     |
     */
-
     'pathao_secret_token' => env('PATHAO_SECRET_TOKEN', ''),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -79,8 +77,8 @@ return [
     | requesting new token.
     |
     */
+    'pathao_grant_type_password' => 'password', // Don't change it
 
-    'pathao_grant_type_password' => 'password',
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +88,7 @@ return [
     | This is Pathao Grant Type Refresh Token. It wiil be used as a parameter for
     | requesting a refresh token.
     |
+    |
     */
-
-    'pathao_grant_type_refresh_token' => 'refresh_token',
+    'pathao_grant_type_refresh_token' => 'refresh_token', // Don't change it
 ];
