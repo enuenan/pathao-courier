@@ -16,13 +16,8 @@ class PathaoCourierServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(
             __DIR__ . '/../config/pathao-courier.php',
-            'pathao-courier-config'
+            'pathao-courier'
         );
-
-        // Migration
-        $this->publishes([
-            __DIR__ . '/../database' => database_path(),
-        ], 'pathao-courier-migrations');
     }
 
     /**
@@ -35,10 +30,7 @@ class PathaoCourierServiceProvider extends ServiceProvider
             __DIR__ . '/../config/pathao-courier.php' => config_path('pathao-courier.php')
         ], 'pathao-courier-config');
 
-        // Migration
-        $this->publishes([
-            __DIR__ . '/../database' => database_path(),
-        ], 'pathao-courier-migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
