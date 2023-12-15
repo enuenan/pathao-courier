@@ -41,14 +41,14 @@ php artisan vendor:publish --tag="pathao-courier-config"
 
 Or you can do both in one command
 
-```
+```bash
 php artisan vendor:publish --provider="Enan\PathaoCourier\PathaoCourierServiceProvider"
 ```
 
-Add the following environment variables to your `.env` file:
+Add the following environment variables to your `.env` file. You can choose the table name of migration before running the migration. Default is 'pathao-courier'
 
-```
-PATHAO_DB_TABLE_NAME='pathao-courier' // You can choose the table name of migration before running the migration. Default is 'pathao-courier'
+```bash
+PATHAO_DB_TABLE_NAME='pathao-courier'
 PATHAO_CLIENT_ID=
 PATHAO_CLIENT_SECRET=
 PATHAO_SECRET_TOKEN=
