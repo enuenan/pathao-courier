@@ -22,7 +22,7 @@ class PathaoCourierServiceProvider extends ServiceProvider
         // Migration
         $this->publishes([
             __DIR__ . '/../database' => database_path(),
-        ], 'pathao-migration');
+        ], 'pathao-courier-migrations');
     }
 
     /**
@@ -38,7 +38,7 @@ class PathaoCourierServiceProvider extends ServiceProvider
         // Migration
         $this->publishes([
             __DIR__ . '/../database' => database_path(),
-        ], 'pathao-migration');
+        ], 'pathao-courier-migrations');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
