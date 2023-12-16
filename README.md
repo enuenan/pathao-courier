@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://merchant.pathao.com/img/logo_pathao_courier.1d2034ea.svg" style="width: 500; height: 500;">
+    <img src="https://moammer-enan.com/portfolio/assets/img/Pathao_Courier_API_Integration_with_Laravel.jpg">
 </div>
 
 <h1 align="center">A complete Laravel Package for Pathao Courier</h1>
@@ -9,7 +9,8 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/enan/pathao-courier/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/enan/pathao-courier/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/enan/pathao-courier.svg?style=flat-square)](https://packagist.org/packages/enan/pathao-courier)
 
-This is a laravel package for [Merchant Pathao Courier](https://merchant.pathao.com/). With this package you can get the following
+A complete package for Laravel to use [Pathao Courier Merchant API](https://merchant.pathao.com/). Setup once and forget about it. You don’t even have to worry about the validation of creating orders, creating a store, or getting calculated price value which are generally a POST request on the Pathao courier end. <br>
+With this package you can get the following
 
 1. Get the city list
 2. Get the zone list
@@ -35,14 +36,18 @@ composer require enan/pathao-courier
 You can publish the migration file and config file with:
 
 ```bash
-php artisan vendor:publish --tag="pathao-courier-migrations"
 php artisan vendor:publish --tag="pathao-courier-config"
 ```
 
-Or you can do both in one command
+Though Laravel auto discover. If not add the following in `config\app.php`. You can skip this part if you want.
 
-```bash
-php artisan vendor:publish --provider="Enan\PathaoCourier\PathaoCourierServiceProvider"
+```php
+// add below line in the providers array
+Enan\PathaoCourier\PathaoCourierServiceProvider::class,
+
+
+// add below line in the alias array
+'PathaoCourier' => Enan\PathaoCourier\Facades\PathaoCourier::class,
 ```
 
 Add the following environment variables to your `.env` file. You can choose the table name of migration before running the migration. Default is 'pathao-courier'
@@ -76,17 +81,6 @@ You will be provided a secret token here. Please set the token in your `.env` fi
 php artisan set:pathao-courier
 ```
 
-Though Laravel auto discover. If not add the following in `config\app.php`
-
-```php
-// add below line in the providers array
-Enan\PathaoCourier\PathaoCourierServiceProvider::class,
-
-
-// add below line in the alias array
-'PathaoCourier' => Enan\PathaoCourier\Facades\PathaoCourier::class,
-```
-
 ### 🏗 Usage
 
 ```php
@@ -102,7 +96,8 @@ use Enan\PathaoCourier\Facade\PathaoCourier;
  */
 PathaoCourier::GET_ACCESS_TOKEN_EXPIRY_DAYS_LEFT();
 
-/** To Get the cities
+/**
+ * To Get the cities
  *
  * @type <GET>
  */
@@ -145,7 +140,7 @@ PathaoCourier::GET_STORES(int $page);
  * @param $zone_id <required, numeric>
  * @param $area_id <required, numeric>
  */
-PathaoCourier::CREATE_STORE(PathaoStoreRequest $request);
+PathaoCourier::CREATE_STORE($request);
 
 /**
  * To Create Order
@@ -169,7 +164,7 @@ PathaoCourier::CREATE_STORE(PathaoStoreRequest $request);
  * @param $amount_to_collect    <required, numeric>
  * @param $item_description     <nullable, string>
  */
-PathaoCourier::CREATE_ORDER(int $page);
+PathaoCourier::CREATE_ORDER($request);
 
 /**
  * To Get Price Calculation
@@ -182,7 +177,7 @@ PathaoCourier::CREATE_ORDER(int $page);
  * @param $recipient_zone <required, numeric>
  * @param $store_id <required, numeric>
  */
-PathaoCourier::GET_PRICE_CALCULATION(PathaoOrderPriceCalculationRequest $request);
+PathaoCourier::GET_PRICE_CALCULATION($request);
 
 
 /**

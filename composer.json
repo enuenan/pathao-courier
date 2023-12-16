@@ -59,10 +59,10 @@
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint",
         "post-install-cmd": [
-            "php artisan vendor:publish --tag=pathao-courier-config --ansi"
+            "@php artisan vendor:publish --tag=pathao-courier-config --ansi"
         ],
         "post-update-cmd": [
-            "php artisan vendor:publish --tag=pathao-courier-config --ansi"
+            "@php artisan vendor:publish --tag=pathao-courier-config --ansi"
         ]
     },
     "config": {
