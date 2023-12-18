@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://moammer-enan.com/portfolio/assets/img/Pathao_Courier_API_Integration_with_Laravel.jpg">
+    <img src="https://moammer-enan.com/portfolio/assets/img/Pathao_Courier_API_Integration_with_Laravel.png">
 </div>
 
 <h1 align="center">A complete Laravel Package for Pathao Courier</h1>
@@ -12,14 +12,14 @@
 A complete package for Laravel to use [Pathao Courier Merchant API](https://merchant.pathao.com/). Setup once and forget about it. You don’t even have to worry about the validation of creating orders, creating a store, or getting calculated price value which are generally a POST request on the Pathao courier end. <br>
 With this package you can get the following
 
-1. Get the city list
-2. Get the zone list
-3. Get the area list
-4. Get the store list
-5. Create Store
-6. Get order details
-7. Get calculated price
-8. Get the token exipiration days left and also expected date of it
+- [x] Get the city list
+- [x] Get the zone list
+- [x] Get the area list
+- [x] Get the store list
+- [x] Create Store
+- [x] Get order details
+- [x] Get calculated price
+- [x] Get the token exipiration days left and also expected date of it
 
 It offers you a bunch of validation for Create order, Create Store, Get calculated price.So you don't have to worry about the validation for all of this.
 
@@ -50,7 +50,7 @@ Enan\PathaoCourier\PathaoCourierServiceProvider::class,
 'PathaoCourier' => Enan\PathaoCourier\Facades\PathaoCourier::class,
 ```
 
-Add the following environment variables to your `.env` file. You can choose the table name of migration before running the migration. Default is 'pathao-courier'
+> Add the following environment variables to your `.env` file. You can choose the table name of migration before running the migration. Default is 'pathao-courier'
 
 ```bash
 PATHAO_DB_TABLE_NAME='pathao-courier'
@@ -81,13 +81,17 @@ You will be provided a secret token here. Please set the token in your `.env` fi
 php artisan set:pathao-courier
 ```
 
-### 🏗 Usage
+## 🏗 Usage
+
+Add the Facade before using
 
 ```php
-
 use Enan\PathaoCourier\Facade\PathaoCourier;
+```
 
+> For the POST type response the required validation are mentioned before the function like <required, string> So here the value should be required and string
 
+```php
 /**
  * To Get the days left of token expiration
  * You'll get the expected date of the expiration and total days left
@@ -131,6 +135,7 @@ PathaoCourier::GET_STORES(int $page);
 /**
  * To Create Store
  * @type <POST>
+ * Pass below mentioned parameter
  *
  * @param $name <required, string>
  * @param $contact_name <required, string>
@@ -145,6 +150,7 @@ PathaoCourier::CREATE_STORE($request);
 /**
  * To Create Order
  * @type <POST>
+ * Pass below mentioned parameter
  *
  * @param $store_id <required, numeric>
  * @param $merchant_order_id    <nullable, string>
@@ -169,6 +175,7 @@ PathaoCourier::CREATE_ORDER($request);
 /**
  * To Get Price Calculation
  * @type <POST>
+ * Pass below mentioned parameter
  *
  * @param $delivery_type <required, numeric>
  * @param $item_type <required, numeric>
@@ -181,7 +188,7 @@ PathaoCourier::GET_PRICE_CALCULATION($request);
 
 
 /**
- * To Create Order
+ * To View Order
  * @type <GET>
  * @param string $consignment_id
  */
