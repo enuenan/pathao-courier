@@ -23,7 +23,7 @@ class PathaoCourier
      * This will return the remaining days left for access token
      * And also return the expected last date of the access token expiration
      * 
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return array
      */
     public function GET_ACCESS_TOKEN_EXPIRY_DAYS_LEFT()
     {
@@ -34,7 +34,7 @@ class PathaoCourier
      * Usage: PathaoCourier::GET_CITIES()
      * 
      * This will return the city list
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return array
      */
     public function GET_CITIES()
     {
@@ -46,7 +46,7 @@ class PathaoCourier
      * 
      * This will return the zone list under a city
      * @param int $city_id
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return array
      */
     public function GET_ZONES(int $city_id)
     {
@@ -58,7 +58,7 @@ class PathaoCourier
      * 
      * This will return the area list under a zone
      * @param int $zone_id
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return array
      */
     public function GET_AREAS(int $zone_id)
     {
@@ -70,7 +70,7 @@ class PathaoCourier
      * 
      * This will return the store list
      * @param int $page
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return array
      */
     public function GET_STORES(int $page = 1)
     {
@@ -92,7 +92,7 @@ class PathaoCourier
      * @param $zone_id <required, numeric>
      * @param $area_id <required, numeric>
      * 
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return array
      */
     public function CREATE_STORE(PathaoStoreRequest $request)
     {
@@ -105,7 +105,7 @@ class PathaoCourier
      * 
      * This will fetch the details of a order
      * @param string $consignment_id
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return array
      */
     public function VIEW_ORDER(string $consignment_id)
     {
@@ -137,7 +137,7 @@ class PathaoCourier
      * @param $amount_to_collect <required, numeric>
      * @param $item_description <nullable, string>
      * 
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return array
      */
     public function CREATE_ORDER(PathaoOrderRequest $request)
     {
@@ -158,7 +158,7 @@ class PathaoCourier
      * @param $recipient_city <required, numeric>
      * @param $recipient_zone <required, numeric>
      * @param $store_id <required, numeric>
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return array
      */
     public function GET_PRICE_CALCULATION(PathaoOrderPriceCalculationRequest $request)
     {

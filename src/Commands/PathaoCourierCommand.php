@@ -77,6 +77,7 @@ class PathaoCourierCommand extends Command
             $data = $response->getData();
             if ($response->isSuccess()) {
                 $this->successMessage("Your secret uniqe token is " . Arr::get($data, 'secret_token'));
+                $this->successMessage("Please update your env value `PATHAO_SECRET_TOKEN` with it.");
             } else {
                 $this->errorMessage(Arr::get($data, 'message'));
             }
