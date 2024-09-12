@@ -9,10 +9,12 @@ use Enan\PathaoCourier\APIBase\PathaoAuth;
 use Enan\PathaoCourier\APIBase\PathaoOrder;
 use Enan\PathaoCourier\APIBase\PathaoStore;
 use Enan\PathaoCourier\DataDTO\PathaoOrderDTO;
+use Enan\PathaoCourier\APIBase\PathaoUserSuccess;
 use Enan\PathaoCourier\DataDTO\PathaoStoreDataDTO;
 use Enan\PathaoCourier\Requests\PathaoOrderRequest;
 use Enan\PathaoCourier\Requests\PathaoStoreRequest;
 use Enan\PathaoCourier\Services\StandardResponseService;
+use Enan\PathaoCourier\Requests\PathaoUserSuccessRateRequest;
 use Enan\PathaoCourier\Requests\PathaoOrderPriceCalculationRequest;
 
 class PathaoCourier
@@ -164,5 +166,21 @@ class PathaoCourier
     {
         $priceCalculationDTO = (new PathaoOrderDTO)->fromPriceCalculationRequest($request);
         return StandardResponseService::RESPONSE_OUTPUT((new PathaoOrder)->price_calculation($priceCalculationDTO));
+    }
+
+    /**
+     * Usage: PathaoCourier::GET_USER_SUCCESS_RATE($request)
+     * 
+     * This will return the users success rate using a phone number
+     * @param \Enan\PathaoCourier\Requests\PathaoUserSuccessRateRequest $request
+     *
+     * Request parameters are below and will follow a validation
+     * @param $phone <required, numeric>
+     * @return array
+     */
+    public function GET_USER_SUCCESS_RATE(PathaoUserSuccessRateRequest $request)
+    {
+        $data = (new PathaoOrderDTO)->fromUserSuccessRate($request);
+        return StandardResponseService::RESPONSE_OUTPUT((new PathaoUserSuccess)->get_user_success_rate($data));
     }
 }

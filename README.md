@@ -12,14 +12,15 @@
 A complete package for Laravel to use [Pathao Courier Merchant API](https://merchant.pathao.com/). Setup once and forget about it. You don’t even have to worry about the validation of creating orders, creating a store, or getting calculated price value which are generally a POST request on the Pathao courier end. <br>
 With this package you can get the following
 
-- [x] Get the city list
-- [x] Get the zone list
-- [x] Get the area list
-- [x] Get the store list
-- [x] Create Store
-- [x] Get order details
-- [x] Get calculated price
-- [x] Get the token exipiration days left and also expected date of it
+-   [x] Get the city list
+-   [x] Get the zone list
+-   [x] Get the area list
+-   [x] Get the store list
+-   [x] Create Store
+-   [x] Get order details
+-   [x] Get calculated price
+-   [x] Get the token exipiration days left and also expected date of it
+-   [x] Get the user success rate using phone number ![New](https://img.shields.io/badge/New-brightgreen)
 
 It offers you a bunch of validation for Create order, Create Store, Get calculated price.So you don't have to worry about the validation for all of this.
 
@@ -193,6 +194,14 @@ PathaoCourier::GET_PRICE_CALCULATION($request);
  * @param string $consignment_id
  */
 PathaoCourier::VIEW_ORDER(string $consignment_id);
+
+
+/**
+ * To Get User's success rate using phone number
+ * @type <POST>
+ * @param string $phone
+ */
+PathaoCourier::GET_USER_SUCCESS_RATE($request);
 
 ```
 

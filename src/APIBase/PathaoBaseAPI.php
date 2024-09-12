@@ -17,6 +17,7 @@ class PathaoBaseAPI
 {
     // public string $base_url = config('pathao-courier.pathao_base_url');
     public string $base_url = 'https://api-hermes.pathao.com/';
+    public string $merchant_base_url = 'https://merchant.pathao.com/';
 
     public $secret_token;
     public $table_name;
@@ -83,13 +84,17 @@ class PathaoBaseAPI
      * @param mixed $data
      * @return array
      */
-    public function Pathao_API_Response(bool $auth = false, string $api, string $method, ?array $data = [])
+    public function Pathao_API_Response(bool $auth = false, string $api, string $method, ?array $data = [], ?bool $merchant = false)
     {
         $response = ['data' => [], 'status' => Response::HTTP_OK];
 
         try {
             $httpClient = Http::timeout(100)->withHeaders($this->setHeaders($auth));
-            $httpUrl = $this->base_url . $api;
+            if ($merchant) {
+                $httpUrl = $this->merchant_base_url . $api;
+            } else {
+                $httpUrl = $this->base_url . $api;
+            }
             if ($method === Request::METHOD_GET) {
                 $pathaoResponse = $httpClient->get($httpUrl, null);
             } else {

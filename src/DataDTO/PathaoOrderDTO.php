@@ -5,6 +5,7 @@ namespace Enan\PathaoCourier\DataDTO;
 
 
 use Enan\PathaoCourier\Requests\PathaoOrderRequest;
+use Enan\PathaoCourier\Requests\PathaoUserSuccessRateRequest;
 use Enan\PathaoCourier\Requests\PathaoOrderPriceCalculationRequest;
 
 
@@ -42,6 +43,13 @@ class PathaoOrderDTO
             "recipient_city" => $request['recipient_city'],
             "recipient_zone" => $request['recipient_zone'],
             "store_id" => $request['store_id'],
+        ];
+    }
+
+    public function fromUserSuccessRate(PathaoUserSuccessRateRequest $request)
+    {
+        return [
+            "phone" => $request['phone'],
         ];
     }
 }
