@@ -87,7 +87,7 @@ php artisan set:pathao-courier
 Add the Facade before using
 
 ```php
-use Enan\PathaoCourier\Facade\PathaoCourier;
+use Enan\PathaoCourier\Facades\PathaoCourier;
 ```
 
 > For the POST type response the required validation are mentioned before the function like <required, string> So here the value should be required and string
