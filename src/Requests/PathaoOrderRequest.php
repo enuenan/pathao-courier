@@ -47,15 +47,15 @@ class PathaoOrderRequest extends BasePathaoRequest
                 'Min:10'
             ],
             'recipient_city' => [
-                'required',
+                'nullable',
                 'numeric'
             ],
             'recipient_zone' => [
-                'required',
+                'nullable',
                 'numeric'
             ],
             'recipient_area' => [
-                'required',
+                'nullable',
                 'numeric'
             ],
             'delivery_type' => [
