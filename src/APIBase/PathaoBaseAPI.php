@@ -46,10 +46,9 @@ class PathaoBaseAPI
         ];
 
         if ($auth) {
-            try {
+            if (!empty($this->pathao_token_data?->token)) {
                 $headers["authorization"] = "Bearer " . $this->pathao_token_data->token;
-            } catch (ErrorException $e) {
-                Log::error($e->getMessage());
+            } else {
                 $common_message = "READ CAREFULLY: This error is from enan/pathao-courier package.";
 
                 if (empty(config('pathao-courier.pathao_client_id'))) {
@@ -70,7 +69,7 @@ class PathaoBaseAPI
                                             If the credentials is missing please setup it with running the command `php artisan set:pathao-courier`.");
                 }
             }
-        };
+        }
 
         return $headers;
     }
@@ -81,10 +80,11 @@ class PathaoBaseAPI
      * @param bool $auth
      * @param string $api
      * @param string $method
-     * @param mixed $data
+     * @param array|null $data
+     * @param bool|null $merchant
      * @return array
      */
-    public function Pathao_API_Response(bool $auth = false, string $api, string $method, ?array $data = [], ?bool $merchant = false)
+    public function Pathao_API_Response(bool $auth, string $api, string $method, ?array $data = [], ?bool $merchant = false)
     {
         $response = ['data' => [], 'status' => Response::HTTP_OK];
 

@@ -95,7 +95,7 @@ class PathaoAuth extends PathaoBaseAPI
      */
     public function getAccessTokenExpiryDaysLeft(): DataServiceOutput
     {
-        $days_left = ceil(($this->pathao_token_data->expires_in - time()) / 86400);
+        $days_left = (int) ceil(($this->pathao_token_data->expires_in - time()) / 86400);
         $expected_date = now()->addDays($days_left)->toDateString();
 
         $response = [
