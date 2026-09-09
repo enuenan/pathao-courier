@@ -39,7 +39,7 @@ class PathaoOrder extends PathaoBaseAPI
     /**
      * View Order
      *
-     * @param int $consignment_id
+     * @param string $consignment_id
      *
      * @return mixed
      */

@@ -18,11 +18,11 @@ class AccessTokenDTO
     public function fromRequest(PathaoAccessTokenRequest $request): array
     {
         return [
-            "client_id" => $request->client_id,
-            "client_secret" => $request->client_secret,
-            "username" => $request->username,
-            "password" => $request->password,
-            "grant_type" => $request->grant_type,
+            "client_id" => $request['client_id'],
+            "client_secret" => $request['client_secret'],
+            "username" => $request['username'],
+            "password" => $request['password'],
+            "grant_type" => $request['grant_type'],
         ];
     }
 
